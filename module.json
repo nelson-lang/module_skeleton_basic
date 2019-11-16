@@ -1,0 +1,33 @@
+{
+  "module": "module_skeleton_basic",
+  "title": "Module skeleton basic",
+  "summary": "Skeleton of a basic nelson package",
+  "version": "1.0.0",
+  "platforms": "all",
+  "nelson": "<2.0.0",
+  "builtin": false,
+  "description": "nelson's module skeleton (macros only)",
+  "copyright": "Copyright © 2019-present Allan CORNET",
+  "author": {
+    "name": "Allan CORNET",
+    "email": "nelson.numerical.computation@gmail.com",
+    "url": "https://nelson-numerical-software.github.io/nelson-website/"
+  },
+  "license": "BSD",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nelson-numerical-software/module_skeleton_basic.git"
+  },
+  "keywords": [
+    "interpreter",
+    "scientific-computing",
+    "programming-language",
+    "matrix-functions",
+    "skeleton"
+  ],
+  "bugs": {
+    "url": "https://github.com/Nelson-numerical-software/module_skeleton_basic/issues"
+  },
+  "homepage": "https://github.com/Nelson-numerical-software/module_skeleton_basic",
+  "dependencies": {}
+}
