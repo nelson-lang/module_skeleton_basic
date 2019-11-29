@@ -20,7 +20,7 @@ platform:
 install:
 - if %platform%==x64 (set NELSON_ARCH=x86-64) else (set NELSON_ARCH=x86-32)
 
-- ps: (new-object net.webclient).DownloadFile($env:NELSON_ZIP_URL", "C:\build_chain\nelson.zip")
+- ps: (new-object net.webclient).DownloadFile($env:NELSON_ZIP_URL, "C:\build_chain\nelson.zip")
 - 7z e C:\build_chain\nelson.zip -o C:\build_chain\nelson
 
 notifications:
