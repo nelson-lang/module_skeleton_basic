@@ -1,0 +1,32 @@
+version: 1.0.{build}
+image: Visual Studio 2019
+
+environment:
+  VS_VERSION: vs2019
+  NELSON_USED: 0.3.11
+  NELSON_BUILD: 2284
+  NELSON_ZIP_URL: https://github.com/Nelson-numerical-software/nelson/releases/download/v%NELSON_USED%/Nelson-%NELSON_USED%-%NELSON_ARCH%.zip
+  BUILD_CHAIN_DIR: c:\build_chain\module
+
+
+branches:
+  only:
+    - master
+
+platform:
+- x86
+- x64
+
+install:
+- if %platform%==x64 (set NELSON_ARCH=x86-64) else (set NELSON_ARCH=x86-32)
+
+- ps: (new-object net.webclient).DownloadFile($env:NELSON_ZIP_URL", "C:\build_chain\nelson.zip")
+- 7z e C:\build_chain\nelson.zip -o C:\build_chain\nelson
+
+notifications:
+- provider: Email
+  to:
+  - nelson.numerical.computation@gmail.com
+
+# clone directory
+clone_folder: c:\build_chain\module
