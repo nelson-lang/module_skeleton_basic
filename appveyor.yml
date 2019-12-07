@@ -9,7 +9,7 @@ environment:
   NELSON_URL: http://nelson.surge.sh
 # NELSON_URL: https://github.com/Nelson-numerical-software/nelson/releases/download/v%NELSON_USED%  
   BUILD_CHAIN_DIR: c:\build_chain\module
-  MODULE_GIT_URL: https://github.com/Nelson-numerical-software/module_skeleton_basic.git#%APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH%
+  MODULE_GIT_URL: https://github.com/Nelson-numerical-software/module_skeleton_basic.git#%APPVEYOR_REPO_COMMIT%
   DESTINATION_DIRECTORY: c:\build_chain\module
 
 branches:
