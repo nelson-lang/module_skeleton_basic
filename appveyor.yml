@@ -7,7 +7,7 @@ environment:
   NELSON_USED: 0.3.11
   NELSON_BUILD: 2305
   NELSON_URL: http://nelson.surge.sh
-# NELSON_URL: https://github.com/Nelson-numerical-software/nelson/releases/download/v%NELSON_USED%  
+# NELSON_URL: https://github.com/Nelson-numerical-software/nelson/releases/download/v%NELSON_USED%
   BUILD_CHAIN_DIR: c:\build_chain\module
   MODULE_GIT_URL: https://github.com/Nelson-numerical-software/module_skeleton_basic.git#%APPVEYOR_REPO_COMMIT%
   DESTINATION_DIRECTORY: c:\build_chain\module
@@ -34,7 +34,7 @@ build_script:
 artifacts:
   - path: ./%MODULE_NAME%*.nmz
   - path: ./tests-*.xml
-  - path: ./tests-*.json  
+  - path: ./tests-*.json
 
 notifications:
 - provider: Email
