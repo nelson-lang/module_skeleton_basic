@@ -10,25 +10,41 @@ jobs:
        shell: cmd
     timeout-minutes: 30
     steps:
-      - name: Download Nelson v0.5.5
+      - name: Download Nelson v0.5.5 (win64)
         run: |
           $null = mkdir c:/install
-          (new-object net.webclient).DownloadFile("https://github.com/Nelson-numerical-software/nelson/releases/download/v0.5.5/Nelson-0.5.5.1197-x86-64.exe", "C:\install\Nelson-x86-64.exe")
+          (new-object net.webclient).DownloadFile("http://nelson.surge.sh/Nelson-0.5.5.1202-x86-64.exe", "C:\install\Nelson-x86-64.exe")
+
         shell: powershell
 
       - name: Install Nelson
         run: |
           C:/install/Nelson-x86-64.exe /SP- /SILENT /DIR="c:/install/Nelson"
 
-      - name: check nelson
-        run: |
-          dir /s "c:/install/Nelson/"
-
       - uses: actions/checkout@v2
 
-      - name: build module
+      - name: creates artifacts directory
         run: |
-          set
-          "c:/install/Nelson/bin/x64/nelson-cli" --noipc --quiet -e "run('%GITHUB_WORKSPACE%/builder.nls');quit"
+          $null = mkdir c:/install/artifacts
+        shell: powershell
 
+      - name: build and install module
+        run: |
+          "c:/install/Nelson/bin/x64/nelson-adv-cli" --noipc --quiet -e "nmm('install', getenv('GITHUB_WORKSPACE'));quit"
 
+      - name: package module
+        run: |
+          "c:/install/Nelson/bin/x64/nelson-adv-cli" --noipc --quiet -e "nmm('package', 'module_skeleton_basic', 'c:/install/artifacts');quit"
+
+      - name: run tests
+        run: |
+          "c:/install/Nelson/bin/x64/nelson-adv-cli" --noipc --quiet -e "test_run('module_skeleton_basic', 'all_tests', 'c:/install/artifacts/tests_results.xml');quit"
+
+      - name: run benchs
+        run: |
+          "c:/install/Nelson/bin/x64/nelson-adv-cli" --noipc --quiet -e "test_run('module_skeleton_basic', 'benchs', 'c:/install/artifacts/benchs_results.xml');quit"
+
+      - uses: actions/upload-artifact@v1
+        with:
+          name: module_skeleton_basic-github-action-artifacts
+          path: c:/install/artifacts/
