@@ -1,3 +1,8 @@
+# 2.2.0 (06/17/2021)
+
+- Nelson 0.5.6 used.
+- macro functions renamed with .m file extension.
+
 # 2.1.0 (05/25/2021)
 
 - [#2](https://github.com/Nelson-numerical-software/module_skeleton_basic/issues/2) add Github CI action for nelson skeleton basic
