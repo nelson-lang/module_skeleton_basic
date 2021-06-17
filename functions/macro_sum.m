@@ -4,10 +4,8 @@
 % This file is released under the 3-clause BSD license. See COPYING-BSD.
 %=============================================================================
 function varargout = macro_sum(varargin)
-	narginchk(1, 2)
-	if (nargout > 1)
-		error(_('Wrong number of output arguments.'));
-	end
+	narginchk(1, 2);
+	nargoutchk(0, 1);
 	A = varargin{1};
 	B = varargin{2};
 	mustBeScalarOrEmpty(A, 1);

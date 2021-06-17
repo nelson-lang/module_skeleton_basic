@@ -2,7 +2,7 @@
   "module": "module_skeleton_basic",
   "title": "Module skeleton basic",
   "summary": "Skeleton of a basic nelson package",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "platforms": "all",
   "nelson": "<2.0.0",
   "builtin": false,
