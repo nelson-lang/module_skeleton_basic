@@ -12,7 +12,7 @@ assert_isequal(nargout('macro_sum'), -1);
 %=============================================================================
 assert_isequal(macro_sum(3, 2), 5);
 %=============================================================================
-assert_checkerror('macro_sum(3, 2, 4)', _('too many input arguments'));
+assert_checkerror('macro_sum(3, 2, 4)', _('Wrong number of input arguments.'));
 msg = [sprintf(_('Invalid input argument at position %d.'), 1), char(10),  _('Value must be scalar or empty.')];
 assert_checkerror('macro_sum([3, 4], 2)', msg);
 %=============================================================================

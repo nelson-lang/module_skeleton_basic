@@ -1,5 +1,7 @@
 # 3.1.0 (UNRELEASED)
 
+- [#8](https://github.com/Nelson-numerical-software/module_skeleton_basic/issues/8) add Github CI action for nelson skeleton basic on linux
+
 - `addpath` with `-frozen` (recommended when package is not in development).
 
 # 3.0.0 (06/24/2021)
