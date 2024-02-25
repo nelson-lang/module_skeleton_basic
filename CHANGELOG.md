@@ -1,3 +1,9 @@
+# 4.1.0 (02/25/2024)
+
+- CI uses v1.2.0
+- CI dependencies updated.
+- Nelson 1.0.0 required.
+
 # 4.0.0 (03/02/2023)
 
 - Nelson 0.7.2 required.
